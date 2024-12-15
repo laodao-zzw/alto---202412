@@ -1,0 +1,21 @@
+ 
+.gh-head {
+	background-color: transparent;
+}
+
+.gh-primary-btn {
+	/* background-color: #050038 !important; */
+	background-color: #f21d68 !important;
+	border-radius: 2rem !important;
+	color: #fff !important;
+	padding: 1.2rem 2.4rem !important;
+	transition: background-color 0.2s ease-in-out !important;
+}
+
+.gh-primary-btn:hover {
+	background-color: #e9c46a !important;
+}
+
+#ghost-portal-root {
+	display: none;
+}

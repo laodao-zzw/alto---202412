@@ -1,0 +1,117 @@
+{{!< default}}
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+
+<link rel="stylesheet" href="{{asset "css/site/nav-page.css"}}">
+
+    {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
+    it should always be the last tag before the closing head tag --}}
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+
+    {{!-- 中文页面的中英文切换按钮 --}}
+<div class="language-switcher">
+<a href="http://localhost:2368/basic-cn/" class="lang-cn" aria-disabled="true">中文</a>
+<a href="http://localhost:2368/basic/" class="lang-en">English</a>
+</div>
+
+<div class="nav-page">
+<!-- 左侧导航 -->
+<aside class="sidebar">
+    <ul class="nav-levels">
+        <li>
+            简介
+            <ul class="sub-menu">
+                {{#get "posts" filter="tag:introduction-cn" order="published_at asc" limit="all"}}
+                    {{#foreach posts}}
+                        <li><a href="#" data-slug="{{slug}}" data-post-id="{{id}}" class="nav-item">{{title}}</a></li>
+                    {{/foreach}}
+                {{/get}}
+            </ul>
+        </li>
+        <li>
+            使用指引
+            <ul class="sub-menu">
+                {{#get "posts" filter="tag:guide-cn" order="published_at asc" limit="all"}}
+                    {{#foreach posts}}
+                        <li><a href="#" data-slug="{{slug}}" data-post-id="{{id}}" class="nav-item">{{title}}</a></li>
+                    {{/foreach}}
+                {{/get}}
+            </ul>
+        </li>
+        <li>
+            其他
+            <ul class="sub-menu">
+                {{#get "posts" filter="tag:other-cn" order="published_at asc" limit="all"}}
+                    {{#foreach posts}}
+                        <li><a href="#" data-slug="{{slug}}" data-post-id="{{id}}" class="nav-item">{{title}}</a></li>
+                    {{/foreach}}
+                {{/get}}
+            </ul>
+        </li>
+    </ul>
+</aside>
+
+    <!-- 右侧内容区域 -->
+<script>
+    document.querySelectorAll('.nav-item').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();  // 阻止链接的默认跳转行为
+
+            // 获取文章的 slug（用于加载内容）
+            var slug = this.getAttribute('data-slug');
+
+            // 使用 fetch 请求文章内容
+            fetch('/' + slug + '/')  // 假设文章内容的路径为 /{slug}/
+                .then(response => response.text())
+                .then(data => {
+                    // 将文章内容插入到右侧的 div 中
+                    document.getElementById('post-content').innerHTML = data;
+                })
+                .catch(error => {
+                    // 错误处理，如果内容加载失败
+                    document.getElementById('post-content').innerHTML = '<p>无法加载内容，请稍后再试。</p>';
+                    console.error('Error loading content:', error);
+                });
+        });
+    });
+</script>
+
+    <!-- 右侧内容区域 -->
+    <div class="content-area">
+
+        <div id="post-content">
+        <!-- Basic首页 -->
+        <!-- Basic top page -->
+        <p><p><p><p><p>
+        <H2>.</H2></p>
+        <H2>.</H2></p>
+        <H2>.</H2></p>
+        <H2>.</H2></p>
+        <H2>.</H2></p>
+        <H2>请选择左侧导航的相关指南。</H2></p>
+        </iframe>
+        </div>
+    </div>
+</div>
+
+{{!--
+<main class="content-area">
+    <!-- 初始占位内容 -->
+    <div class="placeholder">
+        Please select a title in Navigation
+    </div>
+
+    <!-- 动态加载文章内容 -->
+    <div class="posts-container"></div>
+</main>
+--}}
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+/*导航菜单*/
+
+.nav-page {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-page .sidebar {
+    width: 300px;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}
+
+.nav-page .nav-levels {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-page .nav-levels > li {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.nav-page .sub-menu {
+    list-style: none;
+    margin-left: 5px;
+    display: block;
+}
+
+.nav-page .nav-levels > li:hover .sub-menu {
+    display: block;
+}
+
+.nav-page .content-area {
+    flex: 1;
+    padding: 20px;
+}
+
+.nav-page .placeholder {
+    font-style: italic;
+    color: #888;
+}
+
+    .content-area {
+    position: relative; /* 确保右侧子元素相对于此区域定位 */
+    overflow: hidden;
+}
+
+#post-content {
+    margin-top: -180px; /* 右侧上移隐藏顶部导航 */
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* 中英文切换按钮 */
+.language-switcher {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px; /* 调整与导航菜单的间距 */
+    gap: 10px; /* 按钮之间的间距 */
+}
+
+.language-switcher a {
+    text-decoration: none;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 10px;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.language-switcher a:hover {
+    background-color: #f0f0f0; /* 悬停效果 */
+    border-color: #bbb;
+    color: #000;
+}
+
+.language-switcher a[aria-disabled="true"] { /* 当前语言禁用按钮样式 */
+    pointer-events: none; /* 禁用点击 */
+    background-color: #e0e0e0;
+    border-color: #ccc;
+    color: #999;
+    cursor: default; /* 显示禁用鼠标样式 */
+}

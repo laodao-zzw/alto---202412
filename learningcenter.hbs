@@ -1,0 +1,35 @@
+{{!< default}}
+<div style="display:flex; justify-content: center;  ">
+<div class="container">
+  
+  <!-- Navigation Menu Sidebar -->
+  <aside class="sidebar">
+    <h2 id="posts-header">Posts</h2>
+    <ul id="posts-menu">
+      <!-- Grouped Posts Menu will be dynamically injected here by JavaScript -->
+    </ul>
+  </aside>
+
+  <!-- Content Area -->
+  <main class="main-content">
+    <h1 id="post-title">Select a Post</h1>
+    <div id="post-content">
+      <!-- Selected post content will be injected here by JavaScript -->
+    </div>
+  </main>
+  
+</div>
+</div>
+
+
+<!-- Loading Indicator -->
+<div id="loading" style="display: none;">
+  <p>Loading...</p>
+</div>
+ 
+
+ 
+<!-- Include the Ghost Content API JavaScript Client via CDN -->
+<script src="https://unpkg.com/@tryghost/content-api@1.11.1/umd/content-api.min.js"></script>
+<!-- Include your custom JavaScript file -->
+<script src="{{asset "js/learningcenter.js"}}"></script>

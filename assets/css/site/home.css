@@ -1,0 +1,158 @@
+.home {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	row-gap: 18rem;
+	column-gap: 18rem;
+}
+
+.home__section {
+	align-items: center;
+	max-width: 1024px;
+}
+
+.home__section--dark {
+	background-color: #0c143d;
+	color: #fff;
+}
+
+.home__description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.home__image img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+/* home intro */
+.home__title {
+	font-size: 6rem;
+	font-weight: 800;
+	margin-bottom: 2rem;
+	color:var(--text-color);
+}
+
+.home__title--highlighted {
+	background-color: #F21D6B;
+	color: #fff;
+	border-radius: 1rem;
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 0.4rem 0.8rem;
+}
+
+.home__text {
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.home__cta {
+	/* background-color: #4262ff; */
+	background-color: #f21d68;
+	color: #fff;
+	border-radius: 2rem;
+	border: none;
+	margin-top: 4rem;
+	padding: 1rem 2rem;
+	font-size: 2rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.home__cta:hover {
+	/* background-color: #a259ff; */
+	/* background-color: #f4a261; */
+	background-color: #2a9d8f;
+}
+
+/* home workflow */
+.home__subtitle {
+	font-size: 3.5rem;
+	font-weight: 800;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+}
+
+.home__subtitle--dark {
+	color: #fff;
+}
+
+.home__subtext {
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: #757575;
+}
+
+.home__subtext--dark {
+	color: #fff;
+}
+
+.home__list {
+	text-align: left;
+	margin-top: 1rem;
+	border-top: 1px dashed #757575;
+}
+
+.home__list img {
+	display: inline;
+}
+
+.home__list li {
+	list-style-type: none;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+	font-size: 1.6rem;
+}
+
+/* home stories */
+.home__stories {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	row-gap: 8rem;
+	column-gap: 8rem;
+	text-align: center;
+}
+
+.home__stories .home__subtext {
+	padding: 0 8rem;
+}
+
+/* home vision */
+.home__vision {
+	padding: 10rem 2rem;
+}
+
+/* home images */
+.home__img {
+	animation-name: growAnimation;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	animation-play-state: paused;
+}
+
+/* animation */
+@keyframes growAnimation {
+	from {
+		transform: scale(0.8); /* 开始尺寸，即原始尺寸的 80% */
+	}
+	to {
+		transform: scale(1); /* 结束尺寸，即原始尺寸 */
+	}
+}
+
+/* featured posts */
+.home + .gh-outer {
+	margin: 10rem 0 0;
+	padding: 0;
+}
+
+

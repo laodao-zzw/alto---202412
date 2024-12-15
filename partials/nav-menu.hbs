@@ -1,0 +1,43 @@
+{{#get "tags" filter="slug:-[learningcenter]" limit="all" include="count.posts" as |tags|}}
+  <nav aria-label="Learning Center Navigation" class="learning-center-nav">
+    {{#foreach tags}}
+      {{#if count.posts}}
+        <section class="tag-section">
+          <!-- Tag Header -->
+          <h3 class="tag-header">
+            {{name}}
+          </h3>
+          <!-- Posts List -->
+          <ul class="posts-list">
+            {{#get "posts" filter="tag:learningcenter+tag:{{slug}}" limit="all" as |tag_posts|}}
+              {{#foreach tag_posts}}
+                <li class="post-item">
+                  <a href="{{url}}"
+                     class="post-link">
+               
+                    {{title}}
+                  </a>
+                </li>
+              {{/foreach}}
+            {{/get}}
+          </ul>
+        </section>
+      {{/if}}
+    {{/foreach}}
+  </nav>
+{{/get}}
+
+<!-- JavaScript to Handle Active Links -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentUrl = window.location.href;
+    const navLinks = document.querySelectorAll('.post-link');
+
+    navLinks.forEach(link => {
+      if (link.href === currentUrl) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  });
+</script>
